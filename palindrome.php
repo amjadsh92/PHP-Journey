@@ -25,3 +25,12 @@ function ispalindrome($input) {
 
  return true; 
 }
+
+
+$input = $_POST['string'] ?? '';
+
+    
+    if (empty($input)) {
+        echo json_encode(['error' => 'Input string is required']);
+        exit;
+    }
