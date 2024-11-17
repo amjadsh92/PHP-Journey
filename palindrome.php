@@ -1,6 +1,6 @@
 <?php
 
-function ispalindrome($input) {
+function isPalindrome($input) {
    
     $lowercaseInput = '';
     for ($i = 0; $i < strlen($input); $i++) {
@@ -34,3 +34,11 @@ $input = $_POST['string'] ?? '';
         echo json_encode(['error' => 'Input string is required']);
         exit;
     }
+
+    $isPalindrome = isPalindrome($input);
+
+    
+    echo json_encode([
+        'string' => $input,
+        'is_palindrome' => $isPalindrome
+    ]);    
