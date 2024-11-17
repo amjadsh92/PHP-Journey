@@ -49,5 +49,26 @@ function merge($left, $right) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $data = json_decode(file_get_contents('php://input'), true);
+
+    $inputArray = isset($data['initial_array']) ? $data['array'] : null;
+
+    if (!is_array($inputArray)) {
+       
+        echo json_encode(['error' => 'Input should be a valid array.']);
+        exit;
+    }
+
+
+    $sortedArray = merge_sort($inputArray);
+
+
+    echo json_encode([
+        'original_array' => $inputArray,
+        'sorted_array' => $sortedArray
+    ]);
+} else {
+    
+    echo json_encode(['error' => 'Invalid request']);
+    exit;
 }
 ?>
