@@ -12,4 +12,16 @@ function ispalindrome($input) {
         }
     }
 
+
+
+
+ 
+ $len = strlen($lowercaseInput);
+ for ($i = 0; $i < $len / 2; $i++) {
+     if ($lowercaseInput[$i] !== $lowercaseInput[$len - $i - 1]) {
+         return false; 
+     }
+ }
+
+ return true; 
 }
